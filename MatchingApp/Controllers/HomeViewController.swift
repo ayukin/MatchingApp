@@ -20,8 +20,7 @@ class HomeViewController: UIViewController {
         let view2 = UIView()
         view2.backgroundColor = UIColor.blue
         
-        let view3 = UIView()
-        view3.backgroundColor = UIColor.green
+        let view3 = BottomControlView()
         
         let stackView = UIStackView(arrangedSubviews: [view1, view2, view3])
         stackView.translatesAutoresizingMaskIntoConstraints = false

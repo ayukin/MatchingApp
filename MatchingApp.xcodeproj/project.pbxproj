@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E584AC1F2690F6C70017D144 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E584AC1E2690F6C70017D144 /* BottomControlView.swift */; };
 		E5FE0BBF2690C0C6006C6287 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE0BBE2690C0C6006C6287 /* AppDelegate.swift */; };
 		E5FE0BC12690C0C6006C6287 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE0BC02690C0C6006C6287 /* SceneDelegate.swift */; };
 		E5FE0BC32690C0C6006C6287 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE0BC22690C0C6006C6287 /* HomeViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E584AC1E2690F6C70017D144 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		E5FE0BBB2690C0C6006C6287 /* MatchingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5FE0BBE2690C0C6006C6287 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5FE0BC02690C0C6006C6287 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		E584AC1D2690F67A0017D144 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E584AC1E2690F6C70017D144 /* BottomControlView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E5FE0BB22690C0C6006C6287 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		E5FE0BBD2690C0C6006C6287 /* MatchingApp */ = {
 			isa = PBXGroup;
 			children = (
+				E584AC1D2690F67A0017D144 /* Views */,
 				E50013172690EEBA00A2C648 /* Controllers */,
 				E5FE0BBE2690C0C6006C6287 /* AppDelegate.swift */,
 				E5FE0BC02690C0C6006C6287 /* SceneDelegate.swift */,
@@ -265,6 +276,7 @@
 				E5FE0BC32690C0C6006C6287 /* HomeViewController.swift in Sources */,
 				E5FE0BBF2690C0C6006C6287 /* AppDelegate.swift in Sources */,
 				E5FE0BC12690C0C6006C6287 /* SceneDelegate.swift in Sources */,
+				E584AC1F2690F6C70017D144 /* BottomControlView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
