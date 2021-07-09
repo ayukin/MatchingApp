@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		E571825B2696087C0027893A /* UIImage_Extensiom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571825A2696087C0027893A /* UIImage_Extensiom.swift */; };
 		E571826026988C0D0027893A /* UIColor_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571825F26988C0D0027893A /* UIColor_Extension.swift */; };
+		E57182622698DC550027893A /* CardInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57182612698DC550027893A /* CardInfoLabel.swift */; };
+		E57182642698E3A90027893A /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57182632698E3A90027893A /* UIButton_Extension.swift */; };
+		E57182662698E4690027893A /* CardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57182652698E4690027893A /* CardImageView.swift */; };
 		E57D5BCB26934F2900D6BF1D /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57D5BCA26934F2900D6BF1D /* UIView_Extension.swift */; };
 		E584AC1F2690F6C70017D144 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E584AC1E2690F6C70017D144 /* BottomControlView.swift */; };
 		E584AC212691A99E0017D144 /* TopControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E584AC202691A99E0017D144 /* TopControlView.swift */; };
@@ -45,6 +48,9 @@
 /* Begin PBXFileReference section */
 		E571825A2696087C0027893A /* UIImage_Extensiom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_Extensiom.swift; sourceTree = "<group>"; };
 		E571825F26988C0D0027893A /* UIColor_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor_Extension.swift; sourceTree = "<group>"; };
+		E57182612698DC550027893A /* CardInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoLabel.swift; sourceTree = "<group>"; };
+		E57182632698E3A90027893A /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
+		E57182652698E4690027893A /* CardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageView.swift; sourceTree = "<group>"; };
 		E57D5BCA26934F2900D6BF1D /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
 		E584AC1E2690F6C70017D144 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		E584AC202691A99E0017D144 /* TopControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControlView.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 				E57D5BCA26934F2900D6BF1D /* UIView_Extension.swift */,
 				E571825A2696087C0027893A /* UIImage_Extensiom.swift */,
 				E571825F26988C0D0027893A /* UIColor_Extension.swift */,
+				E57182632698E3A90027893A /* UIButton_Extension.swift */,
 			);
 			path = Etensions;
 			sourceTree = "<group>";
@@ -116,6 +123,8 @@
 				E584AC202691A99E0017D144 /* TopControlView.swift */,
 				E584AC1E2690F6C70017D144 /* BottomControlView.swift */,
 				E5BB678C2694F2A900AB8794 /* CardView.swift */,
+				E57182612698DC550027893A /* CardInfoLabel.swift */,
+				E57182652698E4690027893A /* CardImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,13 +320,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5BB678D2694F2A900AB8794 /* CardView.swift in Sources */,
+				E57182642698E3A90027893A /* UIButton_Extension.swift in Sources */,
 				E5FE0BC32690C0C6006C6287 /* HomeViewController.swift in Sources */,
+				E57182622698DC550027893A /* CardInfoLabel.swift in Sources */,
 				E5FE0BBF2690C0C6006C6287 /* AppDelegate.swift in Sources */,
 				E57D5BCB26934F2900D6BF1D /* UIView_Extension.swift in Sources */,
 				E5FE0BC12690C0C6006C6287 /* SceneDelegate.swift in Sources */,
 				E571826026988C0D0027893A /* UIColor_Extension.swift in Sources */,
 				E584AC212691A99E0017D144 /* TopControlView.swift in Sources */,
 				E571825B2696087C0027893A /* UIImage_Extensiom.swift in Sources */,
+				E57182662698E4690027893A /* CardImageView.swift in Sources */,
 				E584AC1F2690F6C70017D144 /* BottomControlView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
