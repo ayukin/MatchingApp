@@ -11,15 +11,15 @@ class CardInfoLabel: UILabel {
     
     
     // noprとgoodのラベル
-    init(frame: CGRect, labelText: String, labelColor: UIColor) {
-        super.init(frame: frame)
+    init(text: String, textColor: UIColor) {
+        super.init(frame: .zero)
         
         font = .boldSystemFont(ofSize: 45)
-        textColor = labelColor
-        text = labelText
+        self.textColor = textColor
+        self.text = text
         
         layer.borderWidth = 3
-        layer.borderColor = labelColor.cgColor
+        layer.borderColor = textColor.cgColor
         layer.cornerRadius = 10
         textAlignment = .center
         alpha = 0
@@ -27,12 +27,12 @@ class CardInfoLabel: UILabel {
     }
     
     // その他のtextColorが白のラベル
-    init(frame: CGRect, labelText: String, labelFont: UIFont) {
-        super.init(frame: frame)
+    init(text: String, font: UIFont) {
+        super.init(frame: .zero)
         
-        font = labelFont
+        self.font = font
         textColor = .white
-        text = labelText
+        self.text = text
         
     }
     

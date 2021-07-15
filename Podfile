@@ -7,6 +7,9 @@ target 'MatchingApp' do
 
   # Pods for MatchingApp
   pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
   target 'MatchingAppTests' do
     inherit! :search_paths
