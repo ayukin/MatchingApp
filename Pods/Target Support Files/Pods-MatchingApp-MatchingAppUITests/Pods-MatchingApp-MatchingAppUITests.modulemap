@@ -1,0 +1,6 @@
+framework module Pods_MatchingApp_MatchingAppUITests {
+  umbrella header "Pods-MatchingApp-MatchingAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
