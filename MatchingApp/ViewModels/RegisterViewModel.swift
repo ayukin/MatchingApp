@@ -7,8 +7,23 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
-class RegisterViewModel {
+// RegisterViewModelから見た入力
+protocol RegisterViewModelInputs {
+    var nameTextInput: AnyObserver<String> { get }
+    var emailTextInput: AnyObserver<String> { get }
+    var passwordTextInput: AnyObserver<String> { get }
+}
+
+// RegisterViewModelから見た出力
+protocol RegisterViewModelOutputs {
+    var nameTextOutput: PublishSubject<String> { get }
+    var emailTextOutput: PublishSubject<String> { get }
+    var passwordTextOutput: PublishSubject<String> { get }
+}
+
+class RegisterViewModel: RegisterViewModelInputs, RegisterViewModelOutputs {
     
     private let disposeBag = DisposeBag()
     
@@ -18,9 +33,11 @@ class RegisterViewModel {
     var emailTextOutput = PublishSubject<String>()
     var passwordTextOutput = PublishSubject<String>()
     
+    var validRegisterSubject = BehaviorSubject<Bool>(value: false)
+    
     // MARK: observer
     // ViewControllerからの入力
-    var nemeTextInput: AnyObserver<String> {
+    var nameTextInput: AnyObserver<String> {
         nameTextOutput.asObserver()
     }
     
@@ -32,26 +49,35 @@ class RegisterViewModel {
         passwordTextOutput.asObserver()
     }
     
+    var validRegisterDriver: Driver<Bool> = Driver.never()
+    
     
     init() {
-        nameTextOutput
-            .asObserver()
-            .subscribe { text in
-                print("name:", text)
-            }
-            .disposed(by: disposeBag)
         
-        emailTextOutput
-            .asObserver()
-            .subscribe { text in
-                print("email:", text)
-            }
-            .disposed(by: disposeBag)
+        validRegisterDriver = validRegisterSubject
+            .asDriver(onErrorDriveWith: Driver.empty())
         
-        passwordTextOutput
+        let nameValid = nameTextOutput
             .asObserver()
-            .subscribe { text in
-                print("password:", text)
+            .map { text -> Bool in
+                return text.count >= 5
+            }
+        
+        let emailValid = emailTextOutput
+            .asObserver()
+            .map { text -> Bool in
+                return text.count >= 5
+            }
+        
+        let passwordValid = passwordTextOutput
+            .asObserver()
+            .map { text -> Bool in
+                return text.count >= 5
+            }
+        // 全部の条件がOKであればtrueを流す処理
+        Observable.combineLatest(nameValid, emailValid, passwordValid) { $0 && $1 && $2 }
+            .subscribe { validAll in
+                self.validRegisterSubject.onNext(validAll)
             }
             .disposed(by: disposeBag)
     }

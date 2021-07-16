@@ -28,6 +28,7 @@
 		E5D8A94426A09C900086E883 /* RegisterTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D8A94326A09C900086E883 /* RegisterTitleLabel.swift */; };
 		E5D8A94626A09F730086E883 /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D8A94526A09F730086E883 /* RegisterButton.swift */; };
 		E5F5FA3426A17DDC002BA117 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5FA3326A17DDC002BA117 /* RegisterViewModel.swift */; };
+		E5F5FA3626A1CCF2002BA117 /* Firebase_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5FA3526A1CCF2002BA117 /* Firebase_Extension.swift */; };
 		E5FE0BBF2690C0C6006C6287 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE0BBE2690C0C6006C6287 /* AppDelegate.swift */; };
 		E5FE0BC12690C0C6006C6287 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE0BC02690C0C6006C6287 /* SceneDelegate.swift */; };
 		E5FE0BC32690C0C6006C6287 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE0BC22690C0C6006C6287 /* HomeViewController.swift */; };
@@ -78,6 +79,7 @@
 		E5D8A94326A09C900086E883 /* RegisterTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTitleLabel.swift; sourceTree = "<group>"; };
 		E5D8A94526A09F730086E883 /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
 		E5F5FA3326A17DDC002BA117 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		E5F5FA3526A1CCF2002BA117 /* Firebase_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase_Extension.swift; sourceTree = "<group>"; };
 		E5FE0BBB2690C0C6006C6287 /* MatchingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5FE0BBE2690C0C6006C6287 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5FE0BC02690C0C6006C6287 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				E571825A2696087C0027893A /* UIImage_Extensiom.swift */,
 				E571825F26988C0D0027893A /* UIColor_Extension.swift */,
 				E57182632698E3A90027893A /* UIButton_Extension.swift */,
+				E5F5FA3526A1CCF2002BA117 /* Firebase_Extension.swift */,
 			);
 			path = Etensions;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				E57182622698DC550027893A /* CardInfoLabel.swift in Sources */,
 				E5FE0BBF2690C0C6006C6287 /* AppDelegate.swift in Sources */,
 				E57D5BCB26934F2900D6BF1D /* UIView_Extension.swift in Sources */,
+				E5F5FA3626A1CCF2002BA117 /* Firebase_Extension.swift in Sources */,
 				E5FE0BC12690C0C6006C6287 /* SceneDelegate.swift in Sources */,
 				E5F5FA3426A17DDC002BA117 /* RegisterViewModel.swift in Sources */,
 				E571826026988C0D0027893A /* UIColor_Extension.swift in Sources */,

@@ -12,6 +12,18 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupLayout()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let registerVC = RegisterViewController()
+            registerVC.modalPresentationStyle = .fullScreen
+            self.present(registerVC, animated: true, completion: nil)
+        }
+        
+        
+    }
+    
+    private func setupLayout() {
         view.backgroundColor = UIColor.white
         
         let topControlView = TopControlView()
@@ -32,9 +44,7 @@ class HomeViewController: UIViewController {
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
-        
     }
-
 
 }
 
