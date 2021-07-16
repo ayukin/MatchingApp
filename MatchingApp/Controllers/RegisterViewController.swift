@@ -9,10 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 import FirebaseAuth
+import FirebaseFirestore
 
 class RegisterViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
+    private let viewModel = RegisterViewModel()
     
     private let titleLabel = RegisterTitleLabel()
     private let nameTextField = RegisterTextField(placeHolder: "名前")
@@ -63,21 +65,21 @@ class RegisterViewController: UIViewController {
         nameTextField.rx.text
             .asDriver()
             .drive { [weak self] text in
-                // 内容
+                self?.viewModel.nemeTextInput.onNext(text ?? "")
             }
             .disposed(by: disposeBag)
         
         emailTextField.rx.text
             .asDriver()
             .drive { [weak self] text in
-                // 内容
+                self?.viewModel.emailTextInput.onNext(text ?? "")
             }
             .disposed(by: disposeBag)
         
         passwordTextField.rx.text
             .asDriver()
             .drive { [weak self] text in
-                // 内容
+                self?.viewModel.passwordTextInput.onNext(text ?? "")
             }
             .disposed(by: disposeBag)
         
@@ -101,8 +103,27 @@ class RegisterViewController: UIViewController {
                 return
             }
             guard let uid = auth?.user.uid else { return }
-            print("auth情報の保存成功", uid)
+            self.seuUserDataToFiresotre(email: email, uid: uid)
         }
     }
+    
+    private func seuUserDataToFiresotre(email: String, uid: String) {
+        
+        guard let name = nameTextField.text else { return }
+        
+        let document = [
+            "name": name,
+            "email": email,
+            "createdAt": Timestamp()
+        ] as [String : Any]
+        
+        Firestore.firestore().collection("users").document(uid).setData(document) { error in
+            if let error = error {
+                print("ユーザー情報をfirestoreに保存失敗", error)
+            }
+            print("ユーザー情報をfirestoreに保存成功")
+        }
+    }
+    
     
 }
