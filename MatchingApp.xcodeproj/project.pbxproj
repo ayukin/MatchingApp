@@ -10,6 +10,7 @@
 		16C6F2350EDEA42A076FD916 /* Pods_MatchingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58D486AC24F571A9736DD9C /* Pods_MatchingApp.framework */; };
 		54CA5D51899A31E9F4990544 /* Pods_MatchingApp_MatchingAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9E9FCEADB7CEDD8BF4A292 /* Pods_MatchingApp_MatchingAppUITests.framework */; };
 		7AEA30AA0F4377C790FA63BB /* Pods_MatchingAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6315157137B5E892AD5321F /* Pods_MatchingAppTests.framework */; };
+		E56917B526A570F2000FEDC1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56917B426A570F2000FEDC1 /* LoginViewController.swift */; };
 		E571825B2696087C0027893A /* UIImage_Extensiom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571825A2696087C0027893A /* UIImage_Extensiom.swift */; };
 		E571826026988C0D0027893A /* UIColor_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571825F26988C0D0027893A /* UIColor_Extension.swift */; };
 		E57182622698DC550027893A /* CardInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57182612698DC550027893A /* CardInfoLabel.swift */; };
@@ -64,6 +65,7 @@
 		A58D486AC24F571A9736DD9C /* Pods_MatchingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatchingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6315157137B5E892AD5321F /* Pods_MatchingAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatchingAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D401E187BBD1B9979CE5722D /* Pods-MatchingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchingAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MatchingAppTests/Pods-MatchingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E56917B426A570F2000FEDC1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E571825A2696087C0027893A /* UIImage_Extensiom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_Extensiom.swift; sourceTree = "<group>"; };
 		E571825F26988C0D0027893A /* UIColor_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor_Extension.swift; sourceTree = "<group>"; };
 		E57182612698DC550027893A /* CardInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoLabel.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				E5FE0BC22690C0C6006C6287 /* HomeViewController.swift */,
 				E5718269269CBC4C0027893A /* RegisterViewController.swift */,
+				E56917B426A570F2000FEDC1 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				E5BB678D2694F2A900AB8794 /* CardView.swift in Sources */,
 				E57182642698E3A90027893A /* UIButton_Extension.swift in Sources */,
 				E5D8A94426A09C900086E883 /* RegisterTitleLabel.swift in Sources */,
+				E56917B526A570F2000FEDC1 /* LoginViewController.swift in Sources */,
 				E5FE0BC32690C0C6006C6287 /* HomeViewController.swift in Sources */,
 				E57182622698DC550027893A /* CardInfoLabel.swift in Sources */,
 				E5FE0BBF2690C0C6006C6287 /* AppDelegate.swift in Sources */,

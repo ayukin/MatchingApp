@@ -1,8 +1,8 @@
 //
-//  RegisterViewController.swift
+//  LoginViewController.swift
 //  MatchingApp
 //
-//  Created by 720.nishioka on 2021/07/13.
+//  Created by 720.nishioka on 2021/07/19.
 //
 
 import UIKit
@@ -11,17 +11,15 @@ import RxCocoa
 import FirebaseAuth
 import FirebaseFirestore
 
-class RegisterViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
-    private let viewModel = RegisterViewModel()
     
-    private let titleLabel = RegisterTitleLabel(text: "Tinder")
-    private let nameTextField = RegisterTextField(placeHolder: "名前")
+    private let titleLabel = RegisterTitleLabel(text: "LOGIN")
     private let emailTextField = RegisterTextField(placeHolder: "email")
     private let passwordTextField = RegisterTextField(placeHolder: "password")
-    private let registerButton = RegisterButton(text: "登録")
-    private let alreadyHaveAccountButton = UIButton(type: .system).createAboutAccountButton(text: "すでにアカウントをお持ちの場合はこちら")
+    private let loginButton = RegisterButton(text: "ログイン")
+    private let dontHaveAccountButton = UIButton(type: .system).createAboutAccountButton(text: "アカウントをお持ちでない場合はこちら")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +27,6 @@ class RegisterViewController: UIViewController {
         setupGradientLayer()
         setupLayout()
         setupBindings()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
     }
     
     private func setupGradientLayer() {
@@ -52,86 +44,78 @@ class RegisterViewController: UIViewController {
         
         passwordTextField.isSecureTextEntry = true
         
-        let baseStackView = UIStackView(arrangedSubviews: [nameTextField, emailTextField, passwordTextField, registerButton])
+        let baseStackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
         baseStackView.axis = .vertical
         baseStackView.distribution = .fillEqually
         baseStackView.spacing = 20
         
         self.view.addSubview(baseStackView)
         self.view.addSubview(titleLabel)
-        self.view.addSubview(alreadyHaveAccountButton)
+        self.view.addSubview(dontHaveAccountButton)
         
         // fillEquallyを設定しているため、全ての高さが準拠する。baseStackViewの高さ指定いらない。
-        nameTextField.anchor(height: 45)
+        emailTextField.anchor(height: 45)
         
         baseStackView.anchor(left: view.leftAnchor, right: view.rightAnchor, centerY: view.centerYAnchor, leftPadding: 20, rightPadding: 20)
         titleLabel.anchor(bottom: baseStackView.topAnchor, centerX: view.centerXAnchor, bottomPadding: 20)
-        alreadyHaveAccountButton.anchor(top: baseStackView.bottomAnchor, centerX: view.centerXAnchor, topPadding: 20)
+        dontHaveAccountButton.anchor(top: baseStackView.bottomAnchor, centerX: view.centerXAnchor, topPadding: 20)
     }
     
     private func setupBindings() {
         // textFieldのbinding
-        nameTextField.rx.text
-            .asDriver()
-            .drive { [weak self] text in
-                self?.viewModel.nameTextInput.onNext(text ?? "")
-            }
-            .disposed(by: disposeBag)
-        
         emailTextField.rx.text
             .asDriver()
             .drive { [weak self] text in
-                self?.viewModel.emailTextInput.onNext(text ?? "")
+//                self?.viewModel.emailTextInput.onNext(text ?? "")
             }
             .disposed(by: disposeBag)
         
         passwordTextField.rx.text
             .asDriver()
             .drive { [weak self] text in
-                self?.viewModel.passwordTextInput.onNext(text ?? "")
+//                self?.viewModel.passwordTextInput.onNext(text ?? "")
             }
             .disposed(by: disposeBag)
         
         // buttonのbinding
-        registerButton.rx.tap
+        loginButton.rx.tap
             .asDriver()
             .drive { [weak self] _ in
                 // 登録処理
-                self?.createUser()
+                self?.loginWithFireAuth()
             }
             .disposed(by: disposeBag)
         
-        alreadyHaveAccountButton.rx.tap
+        dontHaveAccountButton.rx.tap
             .asDriver()
             .drive { [weak self] _ in
                 // 遷移処理
-                let loginVC = LoginViewController()
-                self?.navigationController?.pushViewController(loginVC, animated: true)
+                self?.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
         
         // viewModelのbinding
-        viewModel.validRegisterDriver
-            .drive { validAll in
-                self.registerButton.isEnabled = validAll
-                self.registerButton.backgroundColor = validAll ? .rgb(red: 227, green: 48, blue: 78) : .init(white: 0.7, alpha: 1)
-            }
-            .disposed(by: disposeBag)
+//        viewModel.validRegisterDriver
+//            .drive { validAll in
+//                self.registerButton.isEnabled = validAll
+//                self.registerButton.backgroundColor = validAll ? .rgb(red: 227, green: 48, blue: 78) : .init(white: 0.7, alpha: 1)
+//            }
+//            .disposed(by: disposeBag)
     }
     
-    private func createUser() {
-        let email = emailTextField.text
-        let password = passwordTextField.text
-        let name = nameTextField.text
+    private func loginWithFireAuth() {
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
         
-        Auth.createUserToFireAuth(email: email, password: password, name: name) { success in
-            if success {
-                print("処理完了")
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                
+        Auth.auth().signIn(withEmail: email, password: password) { (res, error) in
+            if let error = error {
+                print("ログイン失敗", error)
+                return
             }
+            print("ログイン成功")
+            self.dismiss(animated: true, completion: nil)
         }
     }
+
     
 }
