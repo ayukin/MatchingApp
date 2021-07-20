@@ -11,6 +11,8 @@
 		54CA5D51899A31E9F4990544 /* Pods_MatchingApp_MatchingAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9E9FCEADB7CEDD8BF4A292 /* Pods_MatchingApp_MatchingAppUITests.framework */; };
 		7AEA30AA0F4377C790FA63BB /* Pods_MatchingAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6315157137B5E892AD5321F /* Pods_MatchingAppTests.framework */; };
 		E56917B526A570F2000FEDC1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56917B426A570F2000FEDC1 /* LoginViewController.swift */; };
+		E56917B826A5BC79000FEDC1 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E56917B726A5BC79000FEDC1 /* PKHUD */; };
+		E56917BB26A64A9D000FEDC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56917BA26A64A9D000FEDC1 /* User.swift */; };
 		E571825B2696087C0027893A /* UIImage_Extensiom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571825A2696087C0027893A /* UIImage_Extensiom.swift */; };
 		E571826026988C0D0027893A /* UIColor_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571825F26988C0D0027893A /* UIColor_Extension.swift */; };
 		E57182622698DC550027893A /* CardInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57182612698DC550027893A /* CardInfoLabel.swift */; };
@@ -66,6 +68,7 @@
 		C6315157137B5E892AD5321F /* Pods_MatchingAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatchingAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D401E187BBD1B9979CE5722D /* Pods-MatchingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchingAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MatchingAppTests/Pods-MatchingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E56917B426A570F2000FEDC1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E56917BA26A64A9D000FEDC1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E571825A2696087C0027893A /* UIImage_Extensiom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_Extensiom.swift; sourceTree = "<group>"; };
 		E571825F26988C0D0027893A /* UIColor_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor_Extension.swift; sourceTree = "<group>"; };
 		E57182612698DC550027893A /* CardInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoLabel.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 				E584AC282691DFCE0017D144 /* RxRelay in Frameworks */,
 				E584AC262691DFCE0017D144 /* RxCocoa in Frameworks */,
 				E584AC242691DFCE0017D144 /* RxSwift in Frameworks */,
+				E56917B826A5BC79000FEDC1 /* PKHUD in Frameworks */,
 				16C6F2350EDEA42A076FD916 /* Pods_MatchingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +164,14 @@
 				E56917B426A570F2000FEDC1 /* LoginViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E56917B926A64A84000FEDC1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E56917BA26A64A9D000FEDC1 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E571826B269CC0030027893A /* Home */ = {
@@ -238,6 +250,7 @@
 		E5FE0BBD2690C0C6006C6287 /* MatchingApp */ = {
 			isa = PBXGroup;
 			children = (
+				E56917B926A64A84000FEDC1 /* Models */,
 				E57D5BC926934EF700D6BF1D /* Etensions */,
 				E584AC1D2690F67A0017D144 /* Views */,
 				E5F5FA3226A17DA4002BA117 /* ViewModels */,
@@ -292,6 +305,7 @@
 				E584AC232691DFCE0017D144 /* RxSwift */,
 				E584AC252691DFCE0017D144 /* RxCocoa */,
 				E584AC272691DFCE0017D144 /* RxRelay */,
+				E56917B726A5BC79000FEDC1 /* PKHUD */,
 			);
 			productName = MatchingApp;
 			productReference = E5FE0BBB2690C0C6006C6287 /* MatchingApp.app */;
@@ -369,6 +383,7 @@
 			mainGroup = E5FE0BB22690C0C6006C6287;
 			packageReferences = (
 				E584AC222691DFCE0017D144 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				E56917B626A5BC79000FEDC1 /* XCRemoteSwiftPackageReference "PKHUD" */,
 			);
 			productRefGroup = E5FE0BBC2690C0C6006C6287 /* Products */;
 			projectDirPath = "";
@@ -524,6 +539,7 @@
 				E5FE0BC32690C0C6006C6287 /* HomeViewController.swift in Sources */,
 				E57182622698DC550027893A /* CardInfoLabel.swift in Sources */,
 				E5FE0BBF2690C0C6006C6287 /* AppDelegate.swift in Sources */,
+				E56917BB26A64A9D000FEDC1 /* User.swift in Sources */,
 				E57D5BCB26934F2900D6BF1D /* UIView_Extension.swift in Sources */,
 				E5F5FA3626A1CCF2002BA117 /* Firebase_Extension.swift in Sources */,
 				E5FE0BC12690C0C6006C6287 /* SceneDelegate.swift in Sources */,
@@ -861,6 +877,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E56917B626A5BC79000FEDC1 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
 		E584AC222691DFCE0017D144 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -872,6 +896,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E56917B726A5BC79000FEDC1 /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E56917B626A5BC79000FEDC1 /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
+		};
 		E584AC232691DFCE0017D144 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E584AC222691DFCE0017D144 /* XCRemoteSwiftPackageReference "RxSwift" */;

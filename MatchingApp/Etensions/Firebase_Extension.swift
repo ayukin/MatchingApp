@@ -25,12 +25,25 @@ extension Auth {
             }
         }
     }
+    
+    static func loginWithFireAuth(email: String, password: String, completion: @escaping (Bool) -> Void) {
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (res, error) in
+            if let error = error {
+                print("ログイン失敗", error)
+                completion(false)
+                return
+            }
+            print("ログイン成功")
+            completion(true)
+        }
+    }
 
 }
 
 // MARK: - Firestore
 extension Firestore {
-    static func seuUserDataToFiresotre(email: String, uid: String, name: String?, completion: @escaping (Bool) -> () ) {
+    static func seuUserDataToFiresotre(email: String, uid: String, name: String?, completion: @escaping (Bool) -> ()) {
         
         guard let name = name else { return }
         
@@ -43,10 +56,26 @@ extension Firestore {
         Firestore.firestore().collection("users").document(uid).setData(document) { error in
             if let error = error {
                 print("ユーザー情報をfirestoreに保存失敗", error)
+                return
             }
             print("ユーザー情報をfirestoreに保存成功")
             completion(true)
         }
     }
+    
+    static func fetchUserFromFirestore(uid: String, completion: @escaping (User?) -> Void) {
+        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
+            if let error = error {
+                print("ユーザー情報の取得失敗", error)
+                completion(nil)
+                return
+            }
+            
+            guard let dic = snapshot?.data() else { return }
+            let user = User(dic: dic)
+            completion(user)
+        }
+    }
+
 
 }
