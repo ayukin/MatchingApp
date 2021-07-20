@@ -64,7 +64,7 @@ extension Firestore {
     }
     
     static func fetchUserFromFirestore(uid: String, completion: @escaping (User?) -> Void) {
-        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
+        Firestore.firestore().collection("users").document(uid).getDocument { (snapshot, error) in
             if let error = error {
                 print("ユーザー情報の取得失敗", error)
                 completion(nil)
@@ -74,6 +74,29 @@ extension Firestore {
             guard let dic = snapshot?.data() else { return }
             let user = User(dic: dic)
             completion(user)
+        }
+    }
+    
+    
+    static func fetchUsersFromFirestore(completion: @escaping ([User]) -> Void) {
+        Firestore.firestore().collection("users").getDocuments { (snapshots, error) in
+            if let error = error {
+                print("ユーザー情報の取得失敗", error)
+                return
+            }
+//            var users = [User]()
+//            snapshots?.documents.forEach({ (snapshot) in
+//                let dic = snapshot.data()
+//                let user = User(dic: dic)
+//                users.append(user)
+//            })
+            
+            let users = snapshots?.documents.map({ (snapshot) -> User in
+                let dic = snapshot.data()
+                let user = User(dic: dic)
+                return user
+            })
+            completion(users ?? [User]())
         }
     }
 
