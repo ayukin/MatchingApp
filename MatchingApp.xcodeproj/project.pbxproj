@@ -30,6 +30,9 @@
 		E5BB678D2694F2A900AB8794 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB678C2694F2A900AB8794 /* CardView.swift */; };
 		E5D8A94426A09C900086E883 /* RegisterTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D8A94326A09C900086E883 /* RegisterTitleLabel.swift */; };
 		E5D8A94626A09F730086E883 /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D8A94526A09F730086E883 /* RegisterButton.swift */; };
+		E5DAD47726B6D16D00A50814 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAD47626B6D16D00A50814 /* ProfileViewController.swift */; };
+		E5DAD47A26B6D4BF00A50814 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAD47926B6D4BF00A50814 /* ProfileImageView.swift */; };
+		E5DAD47C26B6D5A200A50814 /* ProfileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAD47B26B6D5A200A50814 /* ProfileLabel.swift */; };
 		E5F5FA3426A17DDC002BA117 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5FA3326A17DDC002BA117 /* RegisterViewModel.swift */; };
 		E5F5FA3626A1CCF2002BA117 /* Firebase_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5FA3526A1CCF2002BA117 /* Firebase_Extension.swift */; };
 		E5FE0BBF2690C0C6006C6287 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE0BBE2690C0C6006C6287 /* AppDelegate.swift */; };
@@ -83,6 +86,9 @@
 		E5BB678C2694F2A900AB8794 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		E5D8A94326A09C900086E883 /* RegisterTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTitleLabel.swift; sourceTree = "<group>"; };
 		E5D8A94526A09F730086E883 /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
+		E5DAD47626B6D16D00A50814 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E5DAD47926B6D4BF00A50814 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		E5DAD47B26B6D5A200A50814 /* ProfileLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLabel.swift; sourceTree = "<group>"; };
 		E5F5FA3326A17DDC002BA117 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E5F5FA3526A1CCF2002BA117 /* Firebase_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase_Extension.swift; sourceTree = "<group>"; };
 		E5FE0BBB2690C0C6006C6287 /* MatchingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +168,7 @@
 				E5FE0BC22690C0C6006C6287 /* HomeViewController.swift */,
 				E5718269269CBC4C0027893A /* RegisterViewController.swift */,
 				E56917B426A570F2000FEDC1 /* LoginViewController.swift */,
+				E5DAD47626B6D16D00A50814 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -211,10 +218,20 @@
 		E584AC1D2690F67A0017D144 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5DAD47826B6D49B00A50814 /* profile */,
 				E571826B269CC0030027893A /* Home */,
 				E571826C269CC0230027893A /* Register */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E5DAD47826B6D49B00A50814 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				E5DAD47926B6D4BF00A50814 /* ProfileImageView.swift */,
+				E5DAD47B26B6D5A200A50814 /* ProfileLabel.swift */,
+			);
+			path = profile;
 			sourceTree = "<group>";
 		};
 		E5F5FA3226A17DA4002BA117 /* ViewModels */ = {
@@ -547,8 +564,11 @@
 				E571826026988C0D0027893A /* UIColor_Extension.swift in Sources */,
 				E584AC212691A99E0017D144 /* TopControlView.swift in Sources */,
 				E571825B2696087C0027893A /* UIImage_Extensiom.swift in Sources */,
+				E5DAD47A26B6D4BF00A50814 /* ProfileImageView.swift in Sources */,
+				E5DAD47C26B6D5A200A50814 /* ProfileLabel.swift in Sources */,
 				E571826E269CC05D0027893A /* RegisterTextField.swift in Sources */,
 				E571826A269CBC4C0027893A /* RegisterViewController.swift in Sources */,
+				E5DAD47726B6D16D00A50814 /* ProfileViewController.swift in Sources */,
 				E57182662698E4690027893A /* CardImageView.swift in Sources */,
 				E584AC1F2690F6C70017D144 /* BottomControlView.swift in Sources */,
 			);

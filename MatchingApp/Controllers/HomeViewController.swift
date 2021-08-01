@@ -9,8 +9,12 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import PKHUD
+import RxSwift
+import RxCocoa
 
 class HomeViewController: UIViewController {
+    
+    private let disposeBag = DisposeBag()
     
     private var user: User?
     // 自分以外のユーザー情報
@@ -30,6 +34,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupLayout()
+        setupBindings()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -119,5 +124,16 @@ class HomeViewController: UIViewController {
         }
         
     }
+    
+    private func setupBindings() {
+        topControlView.profileButton.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                let profile = ProfileViewController()
+                self?.present(profile, animated: true, completion: nil)
+            }
+            .disposed(by: disposeBag)
+    }
+    
 }
 
