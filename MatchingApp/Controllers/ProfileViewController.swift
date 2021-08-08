@@ -8,7 +8,8 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
+    var user: User?
     private let cellId = "cellId"
 
     // MARK: UIViews
@@ -20,10 +21,12 @@ class ProfileViewController: UIViewController {
 
     lazy var infoCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        // 中のviewを元に自動で大きさが変わってくれる
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .brown
+        collectionView.backgroundColor = .white
         collectionView.register(InfoCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         return collectionView
     }()
@@ -37,7 +40,8 @@ class ProfileViewController: UIViewController {
 
         view.backgroundColor = .white
         nameLabel.text = "test test"
-
+        
+        // Viewの配置を設定
         view.addSubview(saveButton)
         view.addSubview(logoutButton)
         view.addSubview(profileImageView)
@@ -51,6 +55,9 @@ class ProfileViewController: UIViewController {
         nameLabel.anchor(top: profileImageView.bottomAnchor, centerX: view.centerXAnchor, topPadding: 20)
         profileEditButton.anchor(top: profileImageView.topAnchor, right: profileImageView.rightAnchor, width: 60, height: 60)
         infoCollectionView.anchor(top: nameLabel.bottomAnchor, bottom: view.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, topPadding: 20)
+        
+        // ユーザー情報を反映
+        nameLabel.text = user?.name
 
     }
 
@@ -68,24 +75,9 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! InfoCollectionViewCell
+        cell.user = self.user
         return cell
-    }
-
-
-}
-
-// TODO: 別のファイルに分ける
-class InfoCollectionViewCell: UICollectionViewCell {
-
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-
-        backgroundColor = .green
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
 }

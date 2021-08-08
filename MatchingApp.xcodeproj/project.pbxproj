@@ -10,6 +10,8 @@
 		16C6F2350EDEA42A076FD916 /* Pods_MatchingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58D486AC24F571A9736DD9C /* Pods_MatchingApp.framework */; };
 		54CA5D51899A31E9F4990544 /* Pods_MatchingApp_MatchingAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9E9FCEADB7CEDD8BF4A292 /* Pods_MatchingApp_MatchingAppUITests.framework */; };
 		7AEA30AA0F4377C790FA63BB /* Pods_MatchingAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6315157137B5E892AD5321F /* Pods_MatchingAppTests.framework */; };
+		E529225D26C02FCA00B5916B /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E529225C26C02FCA00B5916B /* ProfileTextField.swift */; };
+		E529226026C0350400B5916B /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E529225F26C0350400B5916B /* InfoCollectionViewCell.swift */; };
 		E56917B526A570F2000FEDC1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56917B426A570F2000FEDC1 /* LoginViewController.swift */; };
 		E56917B826A5BC79000FEDC1 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E56917B726A5BC79000FEDC1 /* PKHUD */; };
 		E56917BB26A64A9D000FEDC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56917BA26A64A9D000FEDC1 /* User.swift */; };
@@ -70,6 +72,8 @@
 		A58D486AC24F571A9736DD9C /* Pods_MatchingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatchingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6315157137B5E892AD5321F /* Pods_MatchingAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatchingAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D401E187BBD1B9979CE5722D /* Pods-MatchingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchingAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MatchingAppTests/Pods-MatchingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E529225C26C02FCA00B5916B /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
+		E529225F26C0350400B5916B /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		E56917B426A570F2000FEDC1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E56917BA26A64A9D000FEDC1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E571825A2696087C0027893A /* UIImage_Extensiom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_Extensiom.swift; sourceTree = "<group>"; };
@@ -173,6 +177,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		E529225E26C034DD00B5916B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E529225F26C0350400B5916B /* InfoCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		E56917B926A64A84000FEDC1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +242,7 @@
 			children = (
 				E5DAD47926B6D4BF00A50814 /* ProfileImageView.swift */,
 				E5DAD47B26B6D5A200A50814 /* ProfileLabel.swift */,
+				E529225C26C02FCA00B5916B /* ProfileTextField.swift */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -267,6 +280,7 @@
 		E5FE0BBD2690C0C6006C6287 /* MatchingApp */ = {
 			isa = PBXGroup;
 			children = (
+				E529225E26C034DD00B5916B /* Cells */,
 				E56917B926A64A84000FEDC1 /* Models */,
 				E57D5BC926934EF700D6BF1D /* Etensions */,
 				E584AC1D2690F67A0017D144 /* Views */,
@@ -548,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E529226026C0350400B5916B /* InfoCollectionViewCell.swift in Sources */,
 				E5D8A94626A09F730086E883 /* RegisterButton.swift in Sources */,
 				E5BB678D2694F2A900AB8794 /* CardView.swift in Sources */,
 				E57182642698E3A90027893A /* UIButton_Extension.swift in Sources */,
@@ -559,6 +574,7 @@
 				E56917BB26A64A9D000FEDC1 /* User.swift in Sources */,
 				E57D5BCB26934F2900D6BF1D /* UIView_Extension.swift in Sources */,
 				E5F5FA3626A1CCF2002BA117 /* Firebase_Extension.swift in Sources */,
+				E529225D26C02FCA00B5916B /* ProfileTextField.swift in Sources */,
 				E5FE0BC12690C0C6006C6287 /* SceneDelegate.swift in Sources */,
 				E5F5FA3426A17DDC002BA117 /* RegisterViewModel.swift in Sources */,
 				E571826026988C0D0027893A /* UIColor_Extension.swift in Sources */,
