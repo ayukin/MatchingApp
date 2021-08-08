@@ -64,7 +64,8 @@ extension Firestore {
     }
     
     static func fetchUserFromFirestore(uid: String, completion: @escaping (User?) -> Void) {
-        Firestore.firestore().collection("users").document(uid).getDocument { (snapshot, error) in
+        // addSnapshotListenerは自動で更新してくれる
+        Firestore.firestore().collection("users").document(uid).addSnapshotListener { (snapshot, error) in
             if let error = error {
                 print("ユーザー情報の取得失敗", error)
                 completion(nil)
@@ -75,6 +76,19 @@ extension Firestore {
             let user = User(dic: dic)
             completion(user)
         }
+        
+        // getDocumentは自動で更新してくれない
+//        Firestore.firestore().collection("users").document(uid).getDocument { (snapshot, error) in
+//            if let error = error {
+//                print("ユーザー情報の取得失敗", error)
+//                completion(nil)
+//                return
+//            }
+//
+//            guard let dic = snapshot?.data() else { return }
+//            let user = User(dic: dic)
+//            completion(user)
+//        }
     }
     
     
@@ -99,6 +113,18 @@ extension Firestore {
             completion(users ?? [User]())
         }
     }
-
+    
+    static func updateUserInfo(dic: [String: Any], completion: @escaping () -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        Firestore.firestore().collection("users").document(uid).updateData(dic) { error in
+            if let error = error {
+                print("ユーザー情報の更新に失敗：", error)
+                return
+            }
+            completion()
+            print("ユーザー情報の更新に成功")
+        }
+    }
 
 }

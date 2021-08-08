@@ -215,7 +215,7 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
-		E57D5BC926934EF700D6BF1D /* Etensions */ = {
+		E57D5BC926934EF700D6BF1D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				E57D5BCA26934F2900D6BF1D /* UIView_Extension.swift */,
@@ -224,7 +224,7 @@
 				E57182632698E3A90027893A /* UIButton_Extension.swift */,
 				E5F5FA3526A1CCF2002BA117 /* Firebase_Extension.swift */,
 			);
-			path = Etensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E584AC1D2690F67A0017D144 /* Views */ = {
@@ -282,7 +282,7 @@
 			children = (
 				E529225E26C034DD00B5916B /* Cells */,
 				E56917B926A64A84000FEDC1 /* Models */,
-				E57D5BC926934EF700D6BF1D /* Etensions */,
+				E57D5BC926934EF700D6BF1D /* Extensions */,
 				E584AC1D2690F67A0017D144 /* Views */,
 				E5F5FA3226A17DA4002BA117 /* ViewModels */,
 				E50013172690EEBA00A2C648 /* Controllers */,
