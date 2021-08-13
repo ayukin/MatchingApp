@@ -24,12 +24,6 @@ class HomeViewController: UIViewController {
     let cardView = UIView()
     let bottomControlView = BottomControlView()
     
-    let logoutButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("ログアウト", for: .normal)
-        return button
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,26 +68,18 @@ class HomeViewController: UIViewController {
                 self.cardView.addSubview(card)
                 card.anchor(top: self.cardView.topAnchor, bottom: self.cardView.bottomAnchor, left: self.cardView.leftAnchor, right: self.cardView.rightAnchor)
             }
-            
-            
             print("自分以外のユーザー情報取得に成功")
         }
     }
     
-    
     private func setupLayout() {
         view.backgroundColor = UIColor.white
-        
-//        let topControlView = TopControlView()
-//        let cardView = CardView()
-//        let bottomControlView = BottomControlView()
         
         let stackView = UIStackView(arrangedSubviews: [topControlView, cardView, bottomControlView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         
         self.view.addSubview(stackView)
-        self.view.addSubview(logoutButton)
                 
         NSLayoutConstraint.activate([
             topControlView.heightAnchor.constraint(equalToConstant: 100),
@@ -105,24 +91,6 @@ class HomeViewController: UIViewController {
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
         
-        logoutButton.anchor(bottom: view.bottomAnchor, left: view.leftAnchor, bottomPadding: 10, leftPadding: 10)
-        
-        logoutButton.addTarget(self, action: #selector(tappedLogoutButton), for: .touchUpInside)
-    }
-    
-    @objc private func tappedLogoutButton() {
-        
-        do {
-            try Auth.auth().signOut()
-            let registerVC = RegisterViewController()
-            let nav = UINavigationController(rootViewController: registerVC)
-            nav.modalPresentationStyle = .fullScreen
-            self.present(nav, animated: true, completion: nil)
-        } catch {
-            print("ログアウト失敗：", error)
-            
-        }
-        
     }
     
     private func setupBindings() {
@@ -131,10 +99,26 @@ class HomeViewController: UIViewController {
             .drive { [weak self] _ in
                 let profile = ProfileViewController()
                 profile.user = self?.user
+                profile.presentationController?.delegate = self
                 self?.present(profile, animated: true, completion: nil)
             }
             .disposed(by: disposeBag)
     }
     
+}
+
+// MARK: - UIAdaptivePresentationControllerDelegate
+extension HomeViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        if Auth.auth().currentUser == nil {
+            self.user = nil
+            self.users = []
+            
+            let registerVC = RegisterViewController()
+            let nav = UINavigationController(rootViewController: registerVC)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true, completion: nil)
+        }
+    }
 }
 

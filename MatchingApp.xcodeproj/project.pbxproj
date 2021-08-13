@@ -12,6 +12,7 @@
 		7AEA30AA0F4377C790FA63BB /* Pods_MatchingAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6315157137B5E892AD5321F /* Pods_MatchingAppTests.framework */; };
 		E529225D26C02FCA00B5916B /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E529225C26C02FCA00B5916B /* ProfileTextField.swift */; };
 		E529226026C0350400B5916B /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E529225F26C0350400B5916B /* InfoCollectionViewCell.swift */; };
+		E529226326C6FD9600B5916B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E529226226C6FD9600B5916B /* SDWebImage */; };
 		E56917B526A570F2000FEDC1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56917B426A570F2000FEDC1 /* LoginViewController.swift */; };
 		E56917B826A5BC79000FEDC1 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E56917B726A5BC79000FEDC1 /* PKHUD */; };
 		E56917BB26A64A9D000FEDC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56917BA26A64A9D000FEDC1 /* User.swift */; };
@@ -116,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E529226326C6FD9600B5916B /* SDWebImage in Frameworks */,
 				E584AC282691DFCE0017D144 /* RxRelay in Frameworks */,
 				E584AC262691DFCE0017D144 /* RxCocoa in Frameworks */,
 				E584AC242691DFCE0017D144 /* RxSwift in Frameworks */,
@@ -337,6 +339,7 @@
 				E584AC252691DFCE0017D144 /* RxCocoa */,
 				E584AC272691DFCE0017D144 /* RxRelay */,
 				E56917B726A5BC79000FEDC1 /* PKHUD */,
+				E529226226C6FD9600B5916B /* SDWebImage */,
 			);
 			productName = MatchingApp;
 			productReference = E5FE0BBB2690C0C6006C6287 /* MatchingApp.app */;
@@ -415,6 +418,7 @@
 			packageReferences = (
 				E584AC222691DFCE0017D144 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				E56917B626A5BC79000FEDC1 /* XCRemoteSwiftPackageReference "PKHUD" */,
+				E529226126C6FD9600B5916B /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = E5FE0BBC2690C0C6006C6287 /* Products */;
 			projectDirPath = "";
@@ -913,6 +917,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E529226126C6FD9600B5916B /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.1;
+			};
+		};
 		E56917B626A5BC79000FEDC1 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pkluz/PKHUD";
@@ -932,6 +944,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E529226226C6FD9600B5916B /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E529226126C6FD9600B5916B /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		E56917B726A5BC79000FEDC1 /* PKHUD */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E56917B626A5BC79000FEDC1 /* XCRemoteSwiftPackageReference "PKHUD" */;
