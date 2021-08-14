@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     private var user: User?
+    private var isCardAnimating = false
+    
     // 自分以外のユーザー情報
     private var users = [User]()
     
@@ -59,6 +61,8 @@ class HomeViewController: UIViewController {
     
     private func fetchUsers() {
         HUD.show(.progress)
+        
+        self.users = []
         Firestore.fetchUsersFromFirestore { (users) in
             HUD.hide()
             self.users = users
@@ -103,6 +107,42 @@ class HomeViewController: UIViewController {
                 self?.present(profile, animated: true, completion: nil)
             }
             .disposed(by: disposeBag)
+        
+        bottomControlView.reloadView.button?.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                self?.fetchUsers()
+            }
+            .disposed(by: disposeBag)
+        
+        bottomControlView.closeView.button?.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                guard let self = self else { return }
+                
+                if !self.isCardAnimating {
+                    self.isCardAnimating = true
+                    self.cardView.subviews.last?.removeCardViewAnimation(x: -600, completion: {
+                        self.isCardAnimating = false
+                    })
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        bottomControlView.heartView.button?.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                guard let self = self else { return }
+                
+                if !self.isCardAnimating {
+                    self.isCardAnimating = true
+                    self.cardView.subviews.last?.removeCardViewAnimation(x: 600, completion: {
+                        self.isCardAnimating = false
+                    })
+                }
+            }
+            .disposed(by: disposeBag)
+        
     }
     
 }
